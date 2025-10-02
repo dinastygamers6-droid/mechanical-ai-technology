@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mechanical AI Copywriting — Portfolio & Blog</title>
+    <meta name="description" content="Portfolio & blog profesional: copywriting untuk mechanical engineering berbasis AI — case studies, whitepaper, landing page, email sequence, dan template teknis." />
+    <meta property="og:title" content="Mechanical AI Copywriting — Portfolio & Blog" />
+    <meta property="og:description" content="Copywriting spesialis mechanical engineering & AI: studi kasus, whitepaper, landing page, email, dan style guide." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d6?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">{
+      "@context":"https://schema.org",
+      "@type":"WebSite",
+      "name":"Mechanical AI Copywriting",
+      "url":"https://example.com"
+    }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Inter","ui-sans-serif","system-ui"] } } },
+        darkMode: 'class'
+      };
+    </script>
+    <style>
+      .container{max-width:1120px}
+      .prose img{border-radius:1rem}
+      .tag{@apply text-xs px-2 py-1 rounded-full border}
+      .btn{@apply inline-flex items-center justify-center px-4 py-2 rounded-2xl border bg-black text-white hover:opacity-90 transition}
+      .btn-ghost{@apply inline-flex items-center justify-center px-4 py-2 rounded-2xl hover:bg-black/5 transition}
+      .card{@apply rounded-2xl border bg-white shadow-sm}
+      .muted{@apply text-slate-500}
+    </style>
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-2 font-semibold text-lg">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-lg bg-black text-white">MA</span>
+          <span>Mechanical AI Copywriting</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-1">
+          <button class="btn-ghost" data-nav="home">Home</button>
+          <button class="btn-ghost" data-nav="articles">Articles</button>
+          <button class="btn-ghost" data-nav="services">Services</button>
+          <button class="btn-ghost" data-nav="portfolio">Portfolio</button>
+          <button class="btn-ghost" data-nav="about">About</button>
+          <button class="btn-ghost" data-nav="contact">Contact</button>
+          <button id="toggle-theme" class="btn-ghost ml-2" aria-label="Toggle theme">🌓</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Top Hero (image + title) -->
+    <section class="relative">
+      <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d6?q=80&w=2000&auto=format&fit=crop" alt="mechanical ai" class="w-full h-[320px] md:h-[460px] object-cover" referrerpolicy="no-referrer" onerror="this.src='https://placehold.co/2000x460?text=Mechanical+AI+Copywriting'">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="absolute inset-0 flex items-center">
+        <div class="container mx-auto px-4">
+          <h1 class="text-3xl md:text-5xl font-bold text-white">Mechanical AI Copywriting</h1>
+          <p class="mt-3 text-white/90 max-w-2xl">Copywriter profesional untuk mechanical engineering berbasis AI — case study, whitepaper, landing page, email sequence, dan dokumentasi teknis yang menjual tanpa mengorbankan akurasi.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button class="btn" data-goto="services">Lihat Layanan</button>
+            <button class="btn-ghost text-white border-white" data-goto="portfolio">Portfolio</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main id="app" class="min-h-screen"></main>
+
+    <!-- Footer -->
+    <footer class="mt-16 border-t">
+      <div class="container mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-sm">
+        <div>
+          <div class="font-semibold flex items-center gap-2"><span class="inline-flex h-5 w-5 items-center justify-center rounded bg-black text-white text-[10px]">MA</span> Mechanical AI Copywriting</div>
+          <p class="muted mt-2">Studi kasus & contoh tulisannya memadukan presisi teknik dan daya jual: predictive maintenance, vision QA, NLP, dan digital twin.</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Links</div>
+          <ul class="space-y-2">
+            <li><a class="underline" href="#">Privacy Policy</a></li>
+            <li><a class="underline" href="#">Terms</a></li>
+            <li><a class="underline" href="#">Sitemap</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Connect</div>
+          <div class="flex items-center gap-3">
+            <a class="underline" href="#">X</a>
+            <a class="underline" href="#">LinkedIn</a>
+            <a class="underline" href="#">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center text-xs muted pb-6">© <span id="year"></span> Mechanical AI Copywriting. All rights reserved.</div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // -------- DATA (articles) --------
+      const POSTS = [
+        {
+          id:'pd-maintenance-fleet',
+          title:'Predictive Maintenance untuk Fleet Alat Berat (C13/C15, undercarriage, hydraulic)',
+          date:'2025-09-15', author:'Mechanical AI Copywriting', minutes:9,
+          tags:['Predictive','Vibration','Oil Analysis','Mining'],
+          hero:'https://images.unsplash.com/photo-1533660876120-ecf3f19e2b18?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Menggabungkan oil analysis, vibrasi, suhu bearing, dan jam operasi untuk memprediksi failure dan menjadwalkan downtime.',
+          body:`
+<h3>Ringkasan</h3>
+<p>Sistem <em>predictive maintenance</em> memanfaatkan <strong>sensor</strong> (vibrasi/akselerometer, suhu, tekanan, flow), <strong>oil analysis</strong> (viskositas, partikel Fe, Cu, Si), dan <strong>jam kerja</strong> untuk memodelkan <em>RUL</em>—<em>Remaining Useful Life</em>.</p>
+<h3>Fitur Kunci</h3>
+<ul>
+<li><strong>Feature engineering</strong>: RMS vibrasi, kurtosis, spectral band (1× RPM, gear mesh), trend Fe ppm.</li>
+<li><strong>Model</strong>: RandomForest/XGBoost untuk klasifikasi sehat → warning → critical; LSTM untuk sequence.</li>
+<li><strong>Output</strong>: skor risiko 0–100 + rekomendasi tindakan (ganti seal, cek backlash, re-torque).</li>
+</ul>
+<h3>Dampak</h3>
+<ul>
+<li>Penurunan unplanned downtime: <strong>−32%</strong></li>
+<li>Penghematan suku cadang tepat waktu: <strong>−18%</strong></li>
+<li>Kepatuhan PM (preventive maintenance) naik dari 84% → 96%</li>
+</ul>
+<p><em>Catatan:</em> Angka simulasi dari data sintetis + pola umum site tambang.</p>`
+        },
+        {
+          id:'vision-defect-detection',
+          title:'Computer Vision untuk Inspeksi Cacat (retak permukaan, scoring, pitting)',
+          date:'2025-09-21', author:'Mechanical AI Copywriting', minutes:7,
+          tags:['Vision','Quality','Manufacturing'],
+          hero:'https://images.unsplash.com/photo-1581092334651-ddf26d9a09d6?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Model segmentasi/klasifikasi mendeteksi retak hairline pada komponen undercarriage & permukaan shaft.',
+          body:`
+<h3>Alur</h3>
+<ol>
+<li>Dataset anotasi (mask retak/cacat) → augmentasi (rotate, blur, cutout).</li>
+<li>Model: <strong>YOLOv8/Mask R-CNN</strong> untuk deteksi + segmentasi.</li>
+<li>Inferensi real-time di <em>edge</em> (NVIDIA Jetson) di line inspeksi.</li>
+</ol>
+<h3>MetriK QA</h3>
+<ul>
+<li>mAP@0.5: <strong>0.92</strong>; FPR: <strong>3.1%</strong>; Latensi: <strong>28 ms</strong>.</li>
+<li>Interlock ke CMMS: otomatis buat tiket untuk part suspect.</li>
+</ul>
+<p><em>Benefit</em>: mengurangi miss manusia saat inspeksi visual cepat.</p>`
+        },
+        {
+          id:'nlp-maintenance-logs',
+          title:'NLP di Log Perawatan: Ekstrak Failure Modes & Root Cause',
+          date:'2025-08-30', author:'Mechanical AI Copywriting', minutes:6,
+          tags:['NLP','CMMS','Text Mining'],
+          hero:'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Text mining pada catatan mekanik (Indonesia/Inggris) untuk mengelompokkan failure & merekomendasikan tindakan.',
+          body:`
+<h3>Langkah</h3>
+<ul>
+<li><strong>Normalisasi</strong>: koreksi ejaan, ekspansi singkatan ("assy", "retq").</li>
+<li><strong>NER</strong>: ekstraksi entitas (komponen, kode part, gejala).</li>
+<li><strong>Topic modeling</strong> & <strong>similarity</strong> untuk rekomendasi perbaikan.</li>
+</ul>
+<p>Model <em>multilingual</em> (ID-EN) membantu karena log lapangan sering campur bahasa.</p>`
+        },
+        {
+          id:'optimization-energy',
+          title:'Optimasi Energi & Rute Unit (Idle Reduction + Haul Route)',
+          date:'2025-09-05', author:'Mechanical AI Copywriting', minutes:5,
+          tags:['Optimization','Routing','Fuel'],
+          hero:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Algoritma optimasi rekomendasikan kecepatan & rute untuk menurunkan konsumsi BBM & emisi.',
+          body:`
+<ul>
+<li><strong>Idle detection</strong> dari CAN bus (RPM, throttle, gear) → aturan cut‑idling.</li>
+<li><strong>Routing</strong> via Dijkstra/A* dengan biaya (gradien, kondisi jalan, antrian loading).</li>
+<li><strong>Hasil</strong>: penghematan BBM simulasi 6–12% pada fleet tertentu.</li>
+</ul>`
+        },
+        {
+          id:'whitepaper-pdm-roi',
+          title:'Whitepaper Template: ROI Predictive Maintenance untuk Fleet Mining',
+          date:'2025-09-26', author:'Mechanical AI Copywriting', minutes:8,
+          tags:['Copywriting','Whitepaper','Predictive','Mining'],
+          hero:'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Kerangka whitepaper untuk menghitung ROI PdM: baseline downtime, biaya part, jam hilang, dan proyeksi penghematan.',
+          body:`
+<h3>Outline</h3>
+<ol>
+<li><strong>Executive Summary</strong> — masalah utama, solusi PdM, dampak finansial (angka ringkas).</li>
+<li><strong>Baseline & Assumption</strong> — data downtime historis, biaya part, utilisasi alat.</li>
+<li><strong>Metodologi</strong> — sensor/analitik, model, alur notifikasi ke CMMS.</li>
+<li><strong>Hasil & Proyeksi</strong> — tabel penghematan (bulan/kuartal/tahun).</li>
+<li><strong>Implementation Roadmap</strong> — 30/60/90 hari.</li>
+</ol>
+<p><em>Isi dengan data Anda:</em> [Masukkan tabel baseline] • [Grafik downtime] • [Studi kasus singkat].</p>`
+        },
+        {
+          id:'lp-copy-saas-monitoring',
+          title:'Landing Page Copy Framework untuk AI Maintenance SaaS',
+          date:'2025-09-20', author:'Mechanical AI Copywriting', minutes:6,
+          tags:['Copywriting','Landing Page','SaaS'],
+          hero:'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Framework hero → proof → features → pricing → FAQ dengan contoh headline & CTA.',
+          body:`
+<h3>Section & Contoh</h3>
+<ul>
+<li><strong>Hero:</strong> Headline manfaat + subheadline spesifik + CTA ganda (Trial/Demo).</li>
+<li><strong>Proof:</strong> Logo klien, testimoni, angka penggunaan (jam sensor, unit, site).</li>
+<li><strong>Fitur:</strong> PdM, Vision QA, Integrasi CMMS, Laporan otomatis.</li>
+<li><strong>Pricing:</strong> Tier kejelasan nilai → FAQ keberatan.</li>
+</ul>
+<p><em>Template copy:</em> [Masukkan USP] • [Testimoni nyata] • [CTA yang diinginkan].</p>`
+        },
+        {
+          id:'email-seq-upgrade',
+          title:'Email Sequence: Dari Alert Maintenance ke Upgrade Plan',
+          date:'2025-09-12', author:'Mechanical AI Copywriting', minutes:5,
+          tags:['Copywriting','Email','Lifecycle'],
+          hero:'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Rangkaian 5 email untuk mengubah pengguna alert gratis menjadi pelanggan paket pro.',
+          body:`
+<ol>
+<li><strong>Alert → Insight:</strong> Jelaskan arti alert + quick win.</li>
+<li><strong>Insight → Value:</strong> Tunjukkan dampak finansial & risiko.</li>
+<li><strong>Value → Proof:</strong> Case singkat & metrik.</li>
+<li><strong>Proof → Offer:</strong> Tawarkan plan pro (fitur & bonus on‑boarding).</li>
+<li><strong>Reminder:</strong> Scarcity wajar + CTA jelas.</li>
+</ol>
+<p><em>Isi placeholder:</em> [Nama produk] • [Fitur pro] • [Testimoni singkat].</p>`
+        },
+        {
+          id:'case-hydraulic-ai',
+          title:'Case Study Template: Overhaul Hydraulic Pump dengan AI Diagnostics',
+          date:'2025-08-28', author:'Mechanical AI Copywriting', minutes:7,
+          tags:['Copywriting','Case Study','Hydraulic'],
+          hero:'https://images.unsplash.com/photo-1509395176047-4a66953fd231?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Template studi kasus 1‑3 halaman: konteks kerusakan, analisa AI, perbaikan, dampak.',
+          body:`
+<h3>Struktur</h3>
+<ul>
+<li><strong>Context</strong> — gejala, histori PM, kondisi beban.</li>
+<li><strong>Diagnosis</strong> — sinyal/indikator, hasil model.</li>
+<li><strong>Action</strong> — langkah teknis & waktu pengerjaan.</li>
+<li><strong>Outcome</strong> — downtime, biaya, keselamatan.</li>
+</ul>
+<p><em>Tambahkan bukti:</em> [Foto sebelum/sesudah] • [Cuplikan log] • [Grafik vibrasi].</p>`
+        },
+        {
+          id:'style-guide-technical',
+          title:'Style Guide: Menulis Teknis yang Tetap Persuasif',
+          date:'2025-08-18', author:'Mechanical AI Copywriting', minutes:4,
+          tags:['Copywriting','Style Guide'],
+          hero:'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop',
+          excerpt:'Panduan tone, struktur kalimat, angka, dan visual agar konten teknis tetap enak dibaca.',
+          body:`
+<ul>
+<li><strong>Tone:</strong> jelas, spesifik, anti‑hiperbola.</li>
+<li><strong>Angka:</strong> tampilkan satuan & sumber.</li>
+<li><strong>Struktur:</strong> paragraf pendek + bullet + visual.</li>
+<li><strong>CTA:</strong> 1 tujuan per halaman.</li>
+</ul>
+<p><em>Checklist:</em> [Terminologi yang didefinisikan] • [Unit & standar] • [Link referensi internal].</p>`
+        }
+      ];
+
+      // -------- DEMOS (opsional/mock) --------
+      const DEMOS = [
+        { id:'demo-vibration', title:'Demo: Fitur Vibrasi & Klasifikasi Bearing',
+          desc:'Ekstraksi fitur RMS, kurtosis, dan peak frequency dari sinyal contoh lalu klasifikasi sehat vs rusak (simulasi).',
+          steps:['Upload CSV akselerasi','Hitung fitur','Prediksi kelas'],
+          code:`// pseudo: fitur vibrasi\nconst rms = (arr)=>Math.sqrt(arr.reduce((s,x)=>s+x*x,0)/arr.length);\nconst kurt = (arr)=>{const m=arr.reduce((s,x)=>s+x,0)/arr.length;const v=arr.map(x=>x-m);const s2=v.reduce((s,x)=>s+x*x,0)/v.length;const s4=v.reduce((s,x)=>s+x**4,0)/v.length;return s4/(s2**2)};\n// klasifikasi sederhana (threshold)\nif(rms(data)>TH1 && kurt(data)>TH2) return 'Critical'; else return 'Normal';`},
+        { id:'demo-vision', title:'Demo: Anotasi Cacat (Mock)',
+          desc:'Contoh UI anotasi sederhana untuk menandai retak/pitting pada gambar komponen.',
+          steps:['Upload gambar','Tandai area retak','Export JSON anotasi'],
+          code:`// pseudo: simpan anotasi polygon ke JSON\nconst anno = {type:'polygon', points:[[x1,y1],[x2,y2],...]};\nlocalStorage.setItem('anno', JSON.stringify(anno));`},
+        { id:'demo-nlp', title:'Demo: Ekstrak Entitas dari Log',
+          desc:'Regex + kamus istilah teknik untuk menandai komponen & gejala di log free‑text (simulasi).',
+          steps:['Tempel log','Jalankan ekstraksi','Lihat entitas'],
+          code:`// pseudo: NER regex ringan\nconst parts=['idler','sprocket','roller','seal','hose'];\nconst found=parts.filter(p=>text.includes(p));`},
+      ];
+
+      // -------- STATE/UTIL --------
+      const state={route:'home',query:'',tag:'',readingId:null};
+      const fmtDate=(iso)=>new Date(iso).toLocaleDateString();
+      const FALLBACK_IMG='https://placehold.co/1200x675?text=Mechanical+AI+Copywriting';
+      const el=(tag,attrs={},children=[])=>{const n=document.createElement(tag);if(tag==='img'){n.loading='lazy';n.referrerPolicy='no-referrer';n.addEventListener('error',()=>{n.src=FALLBACK_IMG;});}
+        Object.entries(attrs).forEach(([k,v])=>{if(k==='class')n.className=v;else if(k==='innerHTML')n.innerHTML=v;else if(k.startsWith('on'))n.addEventListener(k.slice(2),v);else if(k==='data-goto')n.dataset.goto=v;else n.setAttribute(k,v)});children.forEach(c=>n.append(c));return n};
+      const byId=(id)=>POSTS.find(p=>p.id===id);
+      const filterPosts=()=>POSTS.filter(p=>{const q=state.query.trim().toLowerCase();const okText=!q||p.title.toLowerCase().includes(q)||p.excerpt.toLowerCase().includes(q)||p.body.toLowerCase().includes(q);const okTag=!state.tag||p.tags.includes(state.tag);return okText&&okTag});
+
+      // -------- VIEWS --------
+      function HeaderActions(){
+        document.querySelectorAll('[data-nav]').forEach(btn=>btn.addEventListener('click',()=>{state.route=btn.dataset.nav;state.readingId=null;render()}));
+        document.querySelectorAll('[data-goto]').forEach(btn=>btn.addEventListener('click',()=>{state.route=btn.dataset.goto;state.readingId=null;render()}));
+        const toggle=document.getElementById('toggle-theme');
+        if(toggle){toggle.addEventListener('click',()=>{const html=document.documentElement;const dark=html.classList.toggle('dark');localStorage.setItem('theme',dark?'dark':'light')});const pref=localStorage.getItem('theme');if(pref==='dark')document.documentElement.classList.add('dark');}
+      }
+
+      function HomeView(){
+        const wrap=el('section',{class:'container mx-auto px-4 py-10 space-y-10'});
+        const hero=el('div',{class:'grid md:grid-cols-2 gap-6 items-stretch'},[
+          el('div',{class:'card p-6'},[
+            el('h2',{class:'text-2xl md:text-3xl font-bold'},['Artikel Terbaru']),
+            el('p',{class:'muted mt-3'},['Kumpulan tulisan dan template yang bisa langsung kamu pakai untuk proyek mechanical AI.']),
+            el('div',{class:'mt-6'},[
+              ...POSTS.slice(0,3).map(p=>el('div',{class:'flex items-start gap-4 mb-3'},[
+                el('img',{src:p.hero,alt:'thumb',class:'w-28 h-20 rounded-xl object-cover border'}),
+                el('div',{},[
+                  el('a',{href:'#',class:'font-semibold hover:underline',onClick:(e)=>{e.preventDefault();state.readingId=p.id;render();}},[p.title]),
+                  el('p',{class:'text-sm muted line-clamp-2'},[p.excerpt])
+                ])
+              ]))
+            ])
+          ]),
+          el('div',{},[NewsletterCard()])
+        ]);
+
+        const search=el('div',{class:'card'},[
+          el('div',{class:'p-6 border-b'},[el('h2',{class:'text-lg font-semibold'},['Cari Artikel'])]),
+          el('div',{class:'p-6'},[
+            el('div',{class:'flex flex-col md:flex-row gap-3'},[
+              el('input',{value:state.query,placeholder:'Cari: Predictive, Vision, NLP, Whitepaper, Landing Page',class:'w-full px-3 py-2 rounded-2xl border',onInput:(e)=>{state.query=e.target.value;render();}}),
+              el('div',{class:'flex flex-wrap gap-2'},[
+                ...['Predictive','Vibration','Oil Analysis','Mining','Vision','Quality','Manufacturing','NLP','CMMS','Text Mining','Optimization','Routing','Fuel','Copywriting','Whitepaper','Landing Page','Email'].map(t=>TagChip(t))
+              ])
+            ]),
+            el('div',{class:'mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3'},[
+              ...filterPosts().map(PostCard),
+              ...(filterPosts().length===0?[el('div',{class:'muted text-sm'},['Tidak ada hasil. Coba kata kunci lain.'])]:[])
+            ])
+          ])
+        ]);
+
+        wrap.append(hero,search);return wrap;
+      }
+
+      function ArticlesView(){
+        return el('section',{class:'container mx-auto px-4 py-10'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Semua Artikel']),
+          el('div',{class:'grid gap-6 md:grid-cols-2 lg:grid-cols-3'},POSTS.map(PostCard))
+        ]);
+      }
+
+      function ServicesView(){
+        return el('section',{class:'container mx-auto px-4 py-10 max-w-5xl'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Layanan Copywriting (Mechanical AI)']),
+          el('div',{class:'grid md:grid-cols-3 gap-4'},[
+            Service('Landing Page Copy (SaaS Monitoring/Fleet)','Value prop tajam, CTA jelas, dan varian A/B siap tes. Termasuk struktur hero, bukti sosial, FAQ, dan risk reversal.'),
+            Service('Case Study & Whitepaper','Riset data + wawancara teknis → naskah yang kredibel dan persuasif. Siap PDF atau halaman web.'),
+            Service('Email Sequence & Launch','Welcome, onboarding, product update, dan kampanye upgrade plan. Fokus open rate & click‑through.'),
+            Service('Technical Blog & SEO','Artikel pilar dan cluster bertema PdM, Vision, NLP, dan digital twin—dengan glossary dan schema markup.'),
+            Service('Proposal/Tender Rewrite','Perapihan technical proposal, executive summary, dan keunggulan kompetitif agar mudah dipahami non-teknis.'),
+            Service('Brand Voice + Prompt Library','Style guide teknis namun persuasif + template prompt untuk konsistensi tim.')
+          ])
+        ]);
+      }
+
+      function PortfolioView(){
+        return el('section',{class:'container mx-auto px-4 py-10 max-w-5xl'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Portfolio Terpilih']),
+          el('div',{class:'grid md:grid-cols-3 gap-6'},[
+            WorkCard('Fleet Mining — PdM','https://images.unsplash.com/photo-1533660876120-ecf3f19e2b18?q=80&w=1200&auto=format&fit=crop','Downtime −32%, parts −18% (simulasi site tambang).'),
+            WorkCard('Vision QA — Manufaktur','https://images.unsplash.com/photo-1581092334651-ddf26d9a09d6?q=80&w=1200&auto=format&fit=crop','mAP@0.5 0.92, FPR 3.1%, latensi 28 ms (mock).'),
+            WorkCard('NLP Log — CMMS','https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop','Topic modeling + entity extraction untuk root cause.')
+          ])
+        ]);
+      }
+
+      function AboutView(){
+        return el('section',{class:'container mx-auto px-4 py-10 max-w-3xl'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Tentang']),
+          el('p',{class:'muted'},['Saya copywriter profesional yang mengkhususkan diri pada mechanical engineering & AI—mengubah data teknis menjadi narasi yang jelas, kredibel, dan mendorong konversi.']),
+          el('ul',{class:'list-disc pl-6 muted mt-4 space-y-1'},[
+            el('li',{},['Bidang: predictive maintenance, computer vision QA, NLP untuk CMMS, digital twin.']),
+            el('li',{},['Output: whitepaper, case study, landing page, email sequence, artikel teknis SEO.']),
+            el('li',{},['Workflow: riset singkat → outline → draf → review teknis → final desain.'])
+          ])
+        ]);
+      }
+
+      function ContactView(){
+        return el('section',{class:'container mx-auto px-4 py-10 max-w-3xl'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Kontak']),
+          el('p',{class:'muted'},['Butuh copy yang presisi teknis dan tetap menjual? Kirim pesan.']),
+          el('form',{class:'mt-4 grid gap-3 max-w-lg',action:'https://formspree.io/f/xxxx',method:'POST'},[
+            el('input',{name:'name',placeholder:'Nama',class:'rounded-2xl border px-3 py-2',required:true}),
+            el('input',{name:'email',placeholder:'Email',type:'email',class:'rounded-2xl border px-3 py-2',required:true}),
+            el('textarea',{name:'message',placeholder:'Ceritakan kebutuhan Anda',class:'rounded-2xl border px-3 py-2 h-28'}),
+            el('button',{class:'btn'},['Kirim'])
+          ]),
+          el('p',{class:'text-xs muted mt-2'},['Ganti kode Formspree "xxxx" dengan ID form kamu agar aktif.'])
+        ]);
+      }
+
+      // -------- PARTIALS --------
+      const TagChip=(t)=>el('button',{class:`tag ${state.tag===t?'bg-black text-white border-black':'bg-white text-slate-700'}`,onClick:()=>{state.tag=(state.tag===t?'':t);render();}},[t]);
+      const PostCard=(p)=>el('div',{class:'card overflow-hidden hover:shadow-lg transition'},[
+        el('div',{class:'aspect-video w-full bg-slate-100 overflow-hidden'},[
+          el('img',{src:p.hero,alt:p.title,class:'w-full h-full object-cover'})
+        ]),
+        el('div',{class:'p-5'},[
+          el('h3',{class:'text-lg font-semibold'},[p.title]),
+          el('div',{class:'muted text-sm flex items-center gap-3 mt-1'},[
+            el('span',{},[fmtDate(p.date)]),
+            el('span',{},[`${p.minutes} min`])
+          ]),
+          el('p',{class:'muted mt-2'},[p.excerpt]),
+          el('div',{class:'mt-3 flex flex-wrap gap-2'},p.tags.map(t=>el('span',{class:'tag bg-white'},[t]))),
+          el('div',{class:'mt-4'},[
+            el('button',{class:'btn',onClick:()=>{state.readingId=p.id;render();}},['Read Article'])
+          ])
+        ])
+      ]);
+
+      function ArticleView(post){
+        const shareUrl=encodeURIComponent(location.href);const shareText=encodeURIComponent(post.title);
+        return el('section',{class:'container mx-auto px-4 py-10 max-w-3xl'},[
+          el('button',{class:'btn-ghost mb-4',onClick:()=>{state.readingId=null;render();}},['← Back']),
+          el('h1',{class:'text-3xl md:text-4xl font-bold'},[post.title]),
+          el('div',{class:'muted text-sm flex items-center gap-3 mt-2'},[
+            el('span',{},[post.author]),
+            el('span',{},['• '+fmtDate(post.date)]),
+            el('span',{},[`${post.minutes} min read`])
+          ]),
+          el('div',{class:'mt-6 rounded-2xl overflow-hidden'},[
+            el('img',{src:post.hero,alt:'hero',class:'w-full object-cover'})
+          ]),
+          el('article',{class:'prose prose-slate max-w-none mt-8'},[
+            el('div',{innerHTML:post.body})
+          ]),
+          el('div',{class:'mt-6 flex flex-wrap gap-2'},post.tags.map(t=>el('span',{class:'tag bg-white'},[t]))),
+          el('div',{class:'mt-8 flex items-center gap-3 text-sm'},[
+            el('span',{class:'muted'},['Share this article:']),
+            el('a',{class:'underline',href:`https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`,target:'_blank'},['X']),
+            el('a',{class:'underline',href:`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`,target:'_blank'},['LinkedIn'])
+          ])
+        ]);
+      }
+
+      const NewsletterCard=()=>el('div',{class:'card p-6'},[
+        el('h3',{class:'text-lg font-semibold'},['Weekly Brief — AI x MechEng']),
+        el('p',{class:'muted mt-1'},['Ringkasan taktis untuk reliability & efficiency. Masukkan email untuk update (demo).']),
+        el('div',{class:'mt-4 flex gap-2'},[
+          el('input',{type:'email',placeholder:'you@example.com',class:'rounded-2xl border px-3 py-2 flex-1'}),
+          el('button',{class:'btn'},['Subscribe'])
+        ]),
+        el('p',{class:'text-xs muted mt-2'},['Form demo. Integrasikan ke EmailJS/Mailchimp bila perlu.'])
+      ]);
+
+      const Service=(title,desc)=>el('div',{class:'card p-5'},[
+        el('h3',{class:'font-semibold'},[title]),
+        el('p',{class:'muted mt-1'},[desc])
+      ]);
+
+      const WorkCard=(title,img,desc)=>el('div',{class:'card overflow-hidden'},[
+        el('img',{src:img,class:'w-full h-36 object-cover'}),
+        el('div',{class:'p-4'},[
+          el('div',{class:'font-semibold'},[title]),
+          el('p',{class:'muted text-sm'},[desc])
+        ])
+      ]);
+
+      // -------- ROUTER --------
+      function DemosView(){
+        return el('section',{class:'container mx-auto px-4 py-10'},[
+          el('h2',{class:'text-2xl font-bold mb-4'},['Demos Interaktif (Mock)']),
+          el('div',{class:'grid md:grid-cols-3 gap-6'},DEMOS.map(DemoCard))
+        ]);
+      }
+
+      function DemoCard(d){return el('div',{class:'card p-5'},[
+        el('div',{class:'font-semibold'},[d.title]),
+        el('p',{class:'muted mt-1'},[d.desc]),
+        el('div',{class:'mt-3 flex flex-wrap gap-2'},d.steps.map(s=>el('span',{class:'tag bg-white'},[s]))),
+        el('pre',{class:'mt-4 bg-slate-50 p-3 rounded-xl overflow-auto text-xs'},[d.code])
+      ])}
+
+      function render(){
+        const app=document.getElementById('app');
+        app.innerHTML='';
+        let view;
+        if(state.readingId) view=ArticleView(byId(state.readingId));
+        else if(state.route==='home') view=HomeView();
+        else if(state.route==='articles') view=ArticlesView();
+        else if(state.route==='services') view=ServicesView();
+        else if(state.route==='portfolio') view=PortfolioView();
+        else if(state.route==='about') view=AboutView();
+        else if(state.route==='contact') view=ContactView();
+        else if(state.route==='demos') view=DemosView();
+        app.append(view);
+      }
+
+      HeaderActions();
+      render();
+    </script>
+  </body>
+</html>
